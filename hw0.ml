@@ -1,8 +1,9 @@
 (* Exercise 1: Number warm-up *)
 (* (a) fact such that fact n returns the factorial of the positive integer n. *)
-let rec fact n =
-  if n = 0 then 1
-  else n * fact (n-1)
+let rec fact n = 
+  match n with
+  | 0 -> 1
+  | n -> n * fact (n-1)
 
 let _ = assert (fact 4 = 24)
 let _ = assert (fact 5 = 120)
@@ -10,8 +11,9 @@ let _ = assert (fact 5 = 120)
 (* (b) nb_bit_pos such that bn_bit_pos n returns the number of bits equal to 1
        in the binary representation of the positive integer n *)
 let rec nb_bit_pos n =
-  if n = 0 then 0
-  else n land 1 + nb_bit_pos (n lsr 1)
+  match n with
+  | 0 -> 0
+  | n -> n land 1 + nb_bit_pos (n lsr 1)
 
 let _ = assert (nb_bit_pos 10 = 2)
 let _ = assert (nb_bit_pos 11 = 3)
@@ -32,8 +34,9 @@ let rec fibo n =
 (* Hint. You can use an auxiliary function using two accumulators. *)
 let fiboiter n =
   let rec aux a b n =
-    if n = 0 then a
-    else aux b (a+b) (n-1)
+    match n with 
+    | 0 -> a 
+    | n -> aux b (a+b) (n-1)
   in aux 0 1 n
 
 let _ = assert (fiboiter 0 = 0)
