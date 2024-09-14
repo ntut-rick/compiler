@@ -34,10 +34,15 @@ let fiboiter n =
   let rec aux a b n =
     if n = 0 then a
     else aux b (a+b) (n-1)
-  in aux 1 1 n
+  in aux 0 1 n
 
-let _ = assert (fiboiter 4 = 5)
-let _ = assert (fiboiter 5 = 8)
+let _ = assert (fiboiter 0 = 0)
+let _ = assert (fiboiter 1 = 1)
+let _ = assert (fiboiter 2 = 1)
+let _ = assert (fiboiter 3 = 2)
+let _ = assert (fiboiter 4 = 3)
+let _ = assert (fiboiter 5 = 5)
+let _ = assert (fiboiter 6 = 8)
 
 (* ------------------------------------------------------------------------------ *)
   
